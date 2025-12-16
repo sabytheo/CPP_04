@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: tsaby <tsaby@student.42.fr>                +#+  +:+       +#+         #
+#    By: tsaby <tsaby@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/23 17:03:26 by tsaby             #+#    #+#              #
-#    Updated: 2025/12/12 17:35:05 by tsaby            ###   ########.fr        #
+#    Updated: 2025/12/15 08:48:16 by tsaby            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,8 @@ NC		:= \033[0m
 SRCS		:=	Animal.cpp \
 				Dog.cpp \
 				Cat.cpp \
+				WrongAnimal.cpp \
+				WrongCat.cpp \
 				main.cpp
 
 
@@ -36,7 +38,9 @@ OBJS		:=	$(SRCS:%.cpp=$(OBJS_D)%.o)
 
 HEAD		:=	include/Animal.hpp \
 				include/Dog.hpp \
-				include/Cat.hpp
+				include/Cat.hpp \
+				include/WrongAnimal.hpp \
+				include/WrongCat.hpp
 
 HEAD_D		:=	.
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tsaby <tsaby@student.42.fr>                +#+  +:+       +#+        */
+/*   By: tsaby <tsaby@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/12 16:59:57 by tsaby             #+#    #+#             */
-/*   Updated: 2025/12/12 18:37:50 by tsaby            ###   ########.fr       */
+/*   Updated: 2025/12/15 08:39:26 by tsaby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,5 @@ class Dog : public Animal
 			virtual ~Dog();
 
 			Dog& operator=(const Dog& other);
-			void makesound();
+			virtual void makeSound() const;
 };

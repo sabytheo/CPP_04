@@ -19,7 +19,7 @@ Cat::Cat(void): Animal()
 	std::cout << "Default Cat constructor called" << std::endl;
 }
 
-Cat::Cat(const Cat &copy)
+Cat::Cat(const Cat &copy) : Animal(copy)
 {
 	std::cout << "Copy Cat constructor called" << std::endl;
 	*this = copy;
@@ -35,7 +35,7 @@ Cat &Cat::operator=(const Cat &other)
 	return *this;
 }
 
-void Cat::makesound()
+void Cat::makeSound() const
 {
 	std::cout << "CAT GOES MEOW MEOW MEOW MEOW MEOW" << std::endl;
 }

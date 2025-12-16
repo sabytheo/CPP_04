@@ -11,10 +11,11 @@ class Animal
 
 			Animal(void);
 			Animal(const Animal& copy);
-			~Animal(void);
+			virtual ~Animal(void);
 
 			Animal& operator=(const Animal& other);
-			virtual void makesound();
+			std::string getType() const;
+			virtual void makeSound() const;
 
 };
 

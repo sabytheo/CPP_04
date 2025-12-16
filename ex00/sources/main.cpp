@@ -1,6 +1,8 @@
 #include "Animal.hpp"
 #include "Cat.hpp"
 #include "Dog.hpp"
+#include "WrongAnimal.hpp"
+#include "WrongCat.hpp"
 #include <iostream>
 
 int main()
@@ -14,6 +16,25 @@ int main()
 	i->makeSound(); //will output the cat sound!
 	j->makeSound();
 	meta->makeSound();
-	...
-return 0;
+
+	delete  i;
+	delete  j;
+	delete  meta;
+
+	std::cout << "\n--- WrongAnimal Test ---\n" << std::endl;
+
+	const WrongAnimal* wrongMeta = new WrongAnimal();
+	const WrongAnimal* wrongI = new WrongCat();
+	const WrongCat* wrongCat = new WrongCat();
+
+	std::cout << wrongI->getType() << " " << std::endl;
+	wrongI->makeSound(); //will output the wrong animal sound!
+	wrongMeta->makeSound();
+	wrongCat->makeSound();
+
+	delete wrongI;
+	delete wrongMeta;
+	delete wrongCat;
+
+	return 0;
 }
