@@ -1,8 +1,7 @@
 #include "Animal.hpp"
 
-Animal::Animal(void)
+Animal::Animal(void): _type("Animal")
 {
-	this->type = "Animal";
 	std::cout << "Default Animal constructor called" << std::endl;
 }
 
@@ -17,14 +16,14 @@ Animal &Animal::operator=(const Animal &other)
 	std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &other)
 	{
-		this->type = other.type;
+		this->_type = other._type;
 	}
 	return *this;
 }
 
 std::string Animal::getType() const
 {
-	return(type);
+	return(_type);
 }
 
  void Animal::makeSound() const
@@ -34,5 +33,5 @@ std::string Animal::getType() const
 
 Animal::~Animal(void)
 {
-	std::cout << "Destructor Animal " << this->type << " called" << std::endl;
+	std::cout << "Destructor Animal " << this->_type << " called" << std::endl;
 }
