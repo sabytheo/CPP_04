@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: tsaby <tsaby@student.42lyon.fr>            +#+  +:+       +#+         #
+#    By: tsaby <tsaby@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/23 17:03:26 by tsaby             #+#    #+#              #
-#    Updated: 2025/12/15 09:20:47 by tsaby            ###   ########.fr        #
+#    Updated: 2026/01/22 16:44:01 by tsaby            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,16 +17,15 @@ NC		:= \033[0m
 
 SRCS		:=	Animal.cpp \
 				Brain.cpp \
-				Dog.cpp \
 				Cat.cpp \
+				Dog.cpp \
+				main.cpp \
 				WrongAnimal.cpp \
 				WrongCat.cpp \
-				main.cpp
-
 
 #*------------------------------------------------------------------------------*
 
-SRCS_D		:=	sources/
+SRCS_D		:=	src/
 
 OBJS_D		:=	objs/
 
@@ -39,22 +38,22 @@ OBJS		:=	$(SRCS:%.cpp=$(OBJS_D)%.o)
 
 HEAD		:=	include/Animal.hpp \
 				include/Brain.hpp \
-				include/Dog.hpp \
 				include/Cat.hpp \
+				include/Dog.hpp \
 				include/WrongAnimal.hpp \
 				include/WrongCat.hpp
 
 HEAD_D		:=	.
 
-CC 			:= c++
+CXX 		:= c++
 
 #*------------------------------------------------------------------------------*
 
-CFLAGS		:=	-Wall -Wextra -Werror -std=c++98 -g3
+CXXFLAGS	:=	-Wall -Wextra -Werror -std=c++98 -g3 -MMD -MP
 
 #*------------------------------------------------------------------------------*
 
-NAME		:=	ex00
+NAME		:=	Fire
 
 #*------------------------------------------------------------------------------*
 
@@ -64,14 +63,14 @@ all			:
 
 #*------------------------------------------------------------------------------*
 
-$(NAME)		:	$(OBJS_D) $(OBJS) $(HEAD)
-				@$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
+$(NAME)		:	$(OBJS_D) $(OBJS)
+				@$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
 				@echo "$(YELLOW)$(NAME) successfully built!$(NC)"
 
 
-$(OBJS)		:	$(OBJS_D)%.o: $(SRCS_D)%.cpp $(HEAD)
+$(OBJS)		:	$(OBJS_D)%.o: $(SRCS_D)%.cpp $ | $(OBJS_D)
 				@echo "$(YELLOW)Compiling $<,...$(NC)"
-				@$(CC) $(CFLAGS) -Iinclude -c $< -o $@
+				@$(CXX) $(CXXFLAGS) -Iinclude -c $< -o $@
 
 
 $(OBJS_D)	:
@@ -88,5 +87,7 @@ fclean		:	clean
 				@echo "$(YELLOW)Full clean complete$(NC)"
 
 re			:	fclean all
+
+-include $(OBJS:.o=.d)
 
 .PHONY: all  clean fclean re
