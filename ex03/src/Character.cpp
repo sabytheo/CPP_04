@@ -1,4 +1,5 @@
 #include "Character.hpp"
+#include <iostream>
 
 Character::Character(std::string const & name) : _name(name) {
 	for (int i = 0; i < 4; i++)
@@ -50,6 +51,11 @@ void Character::equip(AMateria* m) {
 		return;
 	for (int i = 0; i < 4; i++)
 	{
+		if (this->_inventory[i] == m)
+		{
+			std::cout << "Materia is already equip in slot " << i << std::endl;
+			return;
+		}
 		if (!this->_inventory[i])
 		{
 			this->_inventory[i] = m;

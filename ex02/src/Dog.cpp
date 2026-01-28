@@ -12,7 +12,6 @@
 
 #include "Dog.hpp"
 #include "Brain.hpp"
-#include <iostream>
 
 Dog::Dog(void) : Animal()
 {

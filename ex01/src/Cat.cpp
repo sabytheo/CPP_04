@@ -12,7 +12,6 @@
 
 #include "Cat.hpp"
 #include "Brain.hpp"
-#include <iostream>
 
 Cat::Cat(void) : Animal()
 {
